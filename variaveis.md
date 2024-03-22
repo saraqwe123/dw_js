@@ -12,19 +12,23 @@ Var era a única forma de criar variáveis no javascript. Entretanto, ela tem es
 ### Exemplos Var
 
 ``` javascript
-var palavra = document.getElementbyId('sara').value
-function print(palavra) {
+var palavra = 'sara'
+function print() {
     console.log(palavra)
 }
 
-// essa variável tem escopo global // 
+print()
 
-var palavra = document.getElementbyId('sara').value
-function print(palavra) {
-    var palavra = document.getElementbyId('linda').value
+// essa variável tem escopo global (não passa a variável no () da função) // 
+
+function print() {
     console.log(palavra)
+}
 
- // essa variável tem escopo de função, pois palavra foi criada fora da função e palavra criada dentro, assim, o código só enxerga a variável palavra que existe dentro da função //
+palavra = 'sara'
+print(palavra)
+
+ // essa variável tem escopo de função, pois foi criada fora da função e passa como argumento () //
 
  var texto = 'sara'
  var texto = 'python'
@@ -34,7 +38,7 @@ function print(palavra) {
  }
 
  // nesse caso, o valor que será exibido na tela, é 'python', pois ele foi o último a ser criado //
-}
+
 ```
 
 ### Exercícios Var
@@ -80,7 +84,7 @@ let peso = '40'
 {let peso = '70'
 console.log(nome)}
 
-// qual será a saída desse código? 40, 70 // 
+// qual será a saída desse código? 70 // 
 
 ```
 
@@ -116,7 +120,7 @@ const lista = ['texto', 'peixe']
 lista.push('gato')
 lista.push('cachorro')
 
-// qual será a saída desse código? gato, cachorro //
+// qual será a saída desse código? texto, peixe, gato, cachorro. Isso ocorre poruqe push adc na lista //
 ```
 
 
