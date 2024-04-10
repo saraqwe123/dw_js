@@ -69,13 +69,18 @@ function atualizaDisplay(calculadora) {
     calculadora.bufferTextoElemento.innerText = calculadora.operandoAnterior
     calculadora.displayTextoElemento.innerText = calculadora.operandoAtual
 
-
 }
+
 
 /* Limpa os atributos do objeto calculadora e atualiza o display.
  * Para atualizar o dispay, chame a função responsável por isso.
  */
-function limpaVariaveis(calculadora) {}
+function limpaVariaveis(calculadora) {
+  calculadora.operandoAnterior = ''
+  calculadora.operandoAtual = ''
+  calculadora.operador = ''
+  atualizaDisplay(calculadora)
+}
 
 /* Função chamada quando um botão de número é pressionado
  * A função recebe o objeto calculadora e o número a ser exibido no display.
@@ -88,17 +93,25 @@ function adicionaNumero(calculadora, numero) {
 
 }
 
+function Atual_Anterior(calculadora) {
+  atualizaDisplay(calculadora)
+  
+}
+
 /* Função chamada quando um botão de operador é pressionado
- * Essa função tem comportamentos diferentes dependendo do estado da calculadora.
- * Se o operandoAnterior e o operandoAtual estiverem preenchidos
- * - executar o cálculo (chamar outra função para realizar o cálculo).
+* Essa função tem comportamentos diferentes dependendo do estado da calculadora.
+* Se o operandoAnterior e o operandoAtual estiverem preenchidos
+* - executar o cálculo (chamar outra função para realizar o cálculo).
  * Caso o operandoAnterior estiver vazio,
  * - armazenar o operador recebido por parâmetro no atributo operador do objeto calculadora.
  * - copiar operandoAtual para o operandoAnterior, deixando a calculadora preparada para receber o próximo número
  */
 function escolheOperador(calculadora, operador) {
-    calculadora.operandoAtual = calculadora.operandoAtual + operador
+  calculadora.operador = operador
+  calculadora.operandoAnterior = calculadora.operandoAtual + operador
+  calculadora.operandoAtual = ""
     atualizaDisplay(calculadora)
+
 }
 
 /* A função recebe o objeto calculadora e executa o calculo
@@ -107,9 +120,37 @@ function escolheOperador(calculadora, operador) {
  * - Atualizar os atributos operador, operandoAnterior e operandoAtual
  * - Atualizar o display
  */
-function executaCalculo(calculadora) {}
+function executaCalculo(calculadora, calculo) {
+  if (calculadora.operador == "+") {
+   calculo = calculadora.operandoAnterior + calculadora.operandoAtual
+  } 
+  if (calculadora.operador == "-") {
+    calculo = calculadora.operandoAnterior - calculadora.operandoAtual
+  }
+  if (calculadora.operador == "*") {
+    calculo = calculadora.operandoAnterior * calculadora.operandoAtual
+  }
+  if (calculadora.operador == "÷") {
+    calculo = calculadora.operandoAnterior / calculadora.operandoAtual
+  }
+  else {
+    alert('Falha')
+  }
+  atualizaDisplay(calculadora)
+}
+  
+
+
 
 /* Função chamada quando o botão delete for pressionado
  * Apaga o último dígito digitado no
  */
-function apagaDigito(calculadora) {}
+function apagaDigito(calculadora, numero) {
+  if (calculadora.operador == "AC") {
+    calculadora.operandoAtual = calculadora.operandoAtual - numero
+  }
+  else {
+    calculadora.operandoAtual = calculadora.operandoAtual
+  }
+  atualizaDisplay(calculadora)
+}
