@@ -16,7 +16,7 @@ const displayElemento = document.querySelector("[txt-display]");
 // Objeto que irá representar e armazenar os dados da calculadora
 const calculadora = {
   operandoAnterior: "", //array pra conseguir remover pelo indice
-  operandoAtual: "", 
+  operandoAtual: "",
   operador: "",
   bufferTextoElemento: bufferElemento, // DIV buffer
   displayTextoElemento: displayElemento, // DIV display
@@ -43,17 +43,17 @@ btnIgual.addEventListener("click", () => {
 // Botões dos números
 // of pra percorrer todos os elementos
 for (let elemento of btnBotoes) {
-    elemento.addEventListener("click", () => {
-        adicionaNumero(calculadora, elemento.innerText)
-    })
+  elemento.addEventListener("click", () => {
+    adicionaNumero(calculadora, elemento.innerText)
+  })
 }
 
 
 // Botões dos operadores
 for (let elementos of btnOperacoes) {
-    elementos.addEventListener("click", () => {
-        escolheOperador(calculadora, elementos.innerText)
-    })
+  elementos.addEventListener("click", () => {
+    escolheOperador(calculadora, elementos.innerText)
+  })
 }
 
 /****************************************************************
@@ -66,8 +66,8 @@ for (let elementos of btnOperacoes) {
  *  O elemento display é atualizado com o atributo operandoAtual
  */
 function atualizaDisplay(calculadora) {
-    calculadora.bufferTextoElemento.innerText = calculadora.operandoAnterior
-    calculadora.displayTextoElemento.innerText = calculadora.operandoAtual
+  calculadora.bufferTextoElemento.innerText = calculadora.operandoAnterior + " " + calculadora.operador
+  calculadora.displayTextoElemento.innerText = calculadora.operandoAtual
 
 }
 
@@ -88,9 +88,8 @@ function limpaVariaveis(calculadora) {
  * O dígito "." deve receber um tratamento especial
  */
 function adicionaNumero(calculadora, numero) {
-    calculadora.operandoAtual = calculadora.operandoAtual + numero
-    atualizaDisplay(calculadora)
-
+  calculadora.operandoAtual = calculadora.operandoAtual + numero
+  atualizaDisplay(calculadora)
 }
 
 /* Função chamada quando um botão de operador é pressionado
@@ -103,9 +102,10 @@ function adicionaNumero(calculadora, numero) {
  */
 function escolheOperador(calculadora, operador) {
   calculadora.operador = operador
-  calculadora.operandoAnterior = calculadora.operandoAtual + calculadora.operador
+  calculadora.operandoAnterior = calculadora.operandoAtual
   calculadora.operandoAtual = ""
-    atualizaDisplay(calculadora)
+  console.log(calculadora)
+  atualizaDisplay(calculadora)
 
 }
 
@@ -117,38 +117,30 @@ function escolheOperador(calculadora, operador) {
  */
 function executaCalculo(calculadora, calculo) {
   if (calculadora.operador == "+") {
-    calculadora.operador =''
-    calculo = (calculadora.operandoAnterior + calculadora.operandoAtual)
-    calculadora.operandoAtual = calculo
-    calculadora.operandoAnterior = ''
-  } 
+    calculo = parseFloat(calculadora.operandoAnterior) + parseFloat(calculadora.operandoAtual)
+  }
   else if (calculadora.operador == "-") {
-    calculo = calculadora.operandoAnterior - calculadora.operandoAtual
-    calculadora.operandoAtual = calculo
-    calculadora.operandoAnterior = ''
+    calculo = parseFloat(calculadora.operandoAnterior) - parseFloat(calculadora.operandoAtual)
   }
- else if (calculadora.operador == "*") {
-    calculo = calculadora.operandoAnterior * calculadora.operandoAtual
-    calculadora.operandoAtual = calculo
-    calculadora.operandoAnterior = ''
+  else if (calculadora.operador == "*") {
+    calculo = parseFloat(calculadora.operandoAnterior) * parseFloat(calculadora.operandoAtual)
   }
- else if (calculadora.operador == "÷") {
-    calculo = calculadora.operandoAnterior / calculadora.operandoAtual
-    calculadora.operandoAtual = calculo
-    calculadora.operandoAnterior = ''
-  }
-  else {
-    alert('Falha')
-    return
-  }
+  else if (calculadora.operador == "÷") {
+    if (calculadora.operandoAtual != '0') {
+      calculo = parseFloat(calculadora.operandoAnterior) / parseFloat(calculadora.operandoAtual)
+    } 
+  } 
+  calculadora.operandoAtual = calculo
+  calculadora.operandoAnterior = ''
+  calculadora.operador = ""
   atualizaDisplay(calculadora)
 }
-  
+
 /* Função chamada quando o botão delete for pressionado
  * Apaga o último dígito digitado no
  */
 function apagaDigito(calculadora) {
-    let apagaNumero = calculadora.operandoAtual.split('')
-    calculadora.operandoAtual = apagaNumero.shift()
-    atualizaDisplay(calculadora)
+  let apagaNumero = calculadora.operandoAtual.slice(0, -1) //começa no 0 e vai até o último elemento
+  calculadora.operandoAtual = apagaNumero
+  atualizaDisplay(calculadora)
 }
