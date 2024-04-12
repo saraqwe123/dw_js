@@ -117,6 +117,7 @@ function escolheOperador(calculadora, operador) {
  */
 function executaCalculo(calculadora, calculo) {
   if (calculadora.operador == "+") {
+    calculadora.operador =''
     calculo = (calculadora.operandoAnterior + calculadora.operandoAtual)
     calculadora.operandoAtual = calculo
     calculadora.operandoAnterior = ''
