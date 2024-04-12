@@ -101,11 +101,15 @@ function adicionaNumero(calculadora, numero) {
  * - copiar operandoAtual para o operandoAnterior, deixando a calculadora preparada para receber o próximo número
  */
 function escolheOperador(calculadora, operador) {
+  if (calculadora.operandoAnterior != '' && calculadora.operandoAtual != '') {
+    executaCalculo(calculadora)
+  }
   calculadora.operador = operador
   calculadora.operandoAnterior = calculadora.operandoAtual
   calculadora.operandoAtual = ""
   console.log(calculadora)
   atualizaDisplay(calculadora)
+
 
 }
 
