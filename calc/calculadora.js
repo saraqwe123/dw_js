@@ -93,11 +93,6 @@ function adicionaNumero(calculadora, numero) {
 
 }
 
-function Atual_Anterior(calculadora) {
-  atualizaDisplay(calculadora)
-  
-}
-
 /* Função chamada quando um botão de operador é pressionado
 * Essa função tem comportamentos diferentes dependendo do estado da calculadora.
 * Se o operandoAnterior e o operandoAtual estiverem preenchidos
@@ -108,7 +103,7 @@ function Atual_Anterior(calculadora) {
  */
 function escolheOperador(calculadora, operador) {
   calculadora.operador = operador
-  calculadora.operandoAnterior = calculadora.operandoAtual + operador
+  calculadora.operandoAnterior = calculadora.operandoAtual + calculadora.operador
   calculadora.operandoAtual = ""
     atualizaDisplay(calculadora)
 
@@ -122,35 +117,37 @@ function escolheOperador(calculadora, operador) {
  */
 function executaCalculo(calculadora, calculo) {
   if (calculadora.operador == "+") {
-   calculo = calculadora.operandoAnterior + calculadora.operandoAtual
+    calculo = (calculadora.operandoAnterior + calculadora.operandoAtual)
+    calculadora.operandoAtual = calculo
+    calculadora.operandoAnterior = ''
   } 
-  if (calculadora.operador == "-") {
+  else if (calculadora.operador == "-") {
     calculo = calculadora.operandoAnterior - calculadora.operandoAtual
+    calculadora.operandoAtual = calculo
+    calculadora.operandoAnterior = ''
   }
-  if (calculadora.operador == "*") {
+ else if (calculadora.operador == "*") {
     calculo = calculadora.operandoAnterior * calculadora.operandoAtual
+    calculadora.operandoAtual = calculo
+    calculadora.operandoAnterior = ''
   }
-  if (calculadora.operador == "÷") {
+ else if (calculadora.operador == "÷") {
     calculo = calculadora.operandoAnterior / calculadora.operandoAtual
+    calculadora.operandoAtual = calculo
+    calculadora.operandoAnterior = ''
   }
   else {
     alert('Falha')
+    return
   }
   atualizaDisplay(calculadora)
 }
   
-
-
-
 /* Função chamada quando o botão delete for pressionado
  * Apaga o último dígito digitado no
  */
-function apagaDigito(calculadora, numero) {
-  if (calculadora.operador == "AC") {
-    calculadora.operandoAtual = calculadora.operandoAtual - numero
-  }
-  else {
-    calculadora.operandoAtual = calculadora.operandoAtual
-  }
-  atualizaDisplay(calculadora)
+function apagaDigito(calculadora) {
+    let apagaNumero = calculadora.operandoAtual.split('')
+    calculadora.operandoAtual = apagaNumero.shift()
+    atualizaDisplay(calculadora)
 }
