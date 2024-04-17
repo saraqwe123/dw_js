@@ -25,6 +25,25 @@ const calculadora = {
 /****************************************************************
  * Associar funções aos eventos dos elementos HTML
  ****************************************************************/
+document.addEventListener("keypress", (evento) =>{
+  let teclapress = evento.key
+  let numeros ='123456789'
+  let operadores = '+-*/'
+
+  if (numeros.includes(teclapress)) {
+    adicionaNumero(calculadora, teclapress)
+  } else if (operadores.includes(teclapress)) {
+    escolheOperador(calculadora, teclapress == '/' ? '÷': teclapress)
+  } else if (teclaspress == 'Enter') {
+    executaCalculo(calculadora);
+  } else if (teclaspress == 'Escape') {
+      limpaVariaveis(calculadora);
+  } else if (teclaspress == 'Backspace') {
+      apagaDigito(calculadora);
+    }
+
+  })
+
 // Botão AC
 btnAC.addEventListener("click", () => { //estou definindo a função no click do botão, to chamando 
   limpaVariaveis(calculadora);          //limpaVariaveis. 
