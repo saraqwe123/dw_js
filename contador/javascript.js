@@ -9,6 +9,7 @@ inputTexto.addEventListener("input", (evento) => {
         let contar = evento.target.value.lenght;
         divContador.innerText = contar; 
     } else {
-
+        let contar = evento.target.split('', 1);
+        divContador.innerText = contar
     }
 })
