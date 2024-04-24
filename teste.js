@@ -1,2 +1,3 @@
-let sara = 12345
-console.log(sara.Array())
+inputTexto = 'sarrararararara'
+array = inputTexto
+console.log(inputTexto.length)
