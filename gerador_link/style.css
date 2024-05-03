@@ -22,7 +22,7 @@
     display: grid;
     background-color: var(--branca);
     border-radius:10px;
-    height: 35vh;
+    height: 45vh;
     width: 40vw;
 
  }
@@ -48,7 +48,8 @@
  .formulario {
     display: flex;
     flex-direction: column;
-    
+    position: relative;
+ 
  }
 
  input {
@@ -59,13 +60,16 @@
  }
 
  .link {
-    display: none;
-    margin-top: 2%;
+    width: 30%;
+    position: absolute;
+    top: 62%;
     border: 1px solid black;
-    border-radius: 10px;
+    padding: 5px;
  }
 p {
-    display: none;
+    position: absolute;
+    top: 69%;
+
 }
  .pai2 {
     width: 40vw;
