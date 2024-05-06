@@ -19,80 +19,76 @@
  }
 
  .container {
-    display: grid;
-    background-color: var(--branca);
-    border-radius:10px;
-    height: 45vh;
-    width: 40vw;
-
+   height: 40vh;
+   width: 35vw;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: var(--branca);
+   border-radius: 10px;
  }
 
  .titulo {
-    height: 15vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 10%;
- }
-
- img {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    left: 2%;
- }
-
-
- .formulario {
-    display: flex;
-    flex-direction: column;
-    position: relative;
- 
- }
-
- input {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 4%;
-    width: 20vw;
- }
-
- .link {
-    width: 30%;
-    position: absolute;
-    top: 62%;
-    border: 1px solid black;
-    padding: 5px;
- }
-p {
-    position: absolute;
-    top: 69%;
-
-}
- .pai2 {
-    width: 40vw;
-    height: 20vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
- }
-
- .botoes {
-    height: 25vw;
-    width: 10vw;
+   height: 12vh;
+   width: 35vw;
    display: flex;
    flex-direction: row;
    align-items: center;
-   justify-content: space-around;
+   justify-content: center
  }
 
- button {
-    background-color: var(--verde);
-    color: var(--branca);
-    width: 4vw;
-    height: 5vh;
-    border-radius: 10px;
+ img {
+   margin-left: 2%;
+   height: 8vh;
  }
+
+.meio {
+   height: 15vh;
+   width: 35vw;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
+
+input {
+   padding: 3%;
+   border: 1px solid black;
+   border-radius: 10px;
+   width: 50%;
+   margin-right: 2%;
+}
+
+input::placeholder {
+   color: rgb(18, 197, 18);
+}
+
+button {
+   background-color: var(--verde);
+   color: var(--branca);
+   margin-left: 2%;
+   height: 38%;
+   width: 12%;
+   border-radius: 10px;
+}
+
+
+.fim {
+   width: 35vw;
+   height: 10vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: start;
+}
+
+span {
+   border: 1px solid black;
+   width: 90%;
+   height: 35%;
+ 
+}
+
+p {
+   padding: 5%;
+}
