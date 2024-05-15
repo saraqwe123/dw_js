@@ -1,9 +1,11 @@
-const numero = document.getElementById('inumero').value
 const teste_numero = /^(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})$/; //expressao retirada através da leitura do material disponível para o projeto
 
 function verifica_numero() {
-    if ( teste_numero.test(numero)) { 
-        console.log('numero correto')
+    const numero = document.getElementById('inumero')
+    if ( teste_numero.test(numero.value)) { 
+        console.log(numero)
+        numero.classList.add('aparecer')
+        console.log(numero)
     }
     //usamos o test para validar expressoes regulares. Neste caso, estamos verificando se o numero é regular
     else {

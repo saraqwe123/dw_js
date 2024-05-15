@@ -63,6 +63,10 @@ input::placeholder {
    color: rgb(18, 197, 18);
 }
 
+input.aparecer {
+   background-color: yellow;
+}
+
 button {
    background-color: var(--verde);
    color: var(--branca);
