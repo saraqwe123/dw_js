@@ -86,9 +86,10 @@ span {
    border: 1px solid black;
    width: 90%;
    height: 35%;
- 
+   display: none;
 }
 
 p {
    padding: 5%;
+   display: none;
 }
