@@ -103,3 +103,20 @@ p {
    padding: 5%;
    display: none;
 }
+
+@media screen and (max-width: 480px) {
+   .titulo {
+      width: 10vw;
+      height: 5vh;
+   }
+
+   span {
+      width: 30%;
+      font-size: 8px;
+   }
+}
+
+/* Estilos para smartphones em modo paisagem (de 481px a 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+   /* Adicione seus estilos aqui */
+}
