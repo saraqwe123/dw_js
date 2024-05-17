@@ -6,26 +6,26 @@ const numero = document.getElementById('inumero')
 let aba_link = ""
 function verifica_numero(event) {
     let apenas_numero = ""
-    numero.value = numero.value
     for (let n of numero.value) {
         // a exclamação inverte tudo
-
-        if (!isNaN(n)) {
-            apenas_numero += n
-            // pegando apenas os numeros para colocar no link
+        if (!"()- ".includes(n)) {
+            console.log(numero.value)
+            if (!isNaN(n)) {
+                apenas_numero += n
+         } // pegando apenas os numeros para colocar no link
         }
         aba_link = apenas_numero
     }
     if (teste_numero.test(apenas_numero)) {
         numero.classList.add('certo')
         numero.classList.remove('erro')
+        let formatado = `(${apenas_numero.substring(0, 2)}) ${apenas_numero.substring(2, 7)}-${apenas_numero.substring(7, 12)}`
+        numero.value = formatado
         const gera_link = `https://wa.me/${apenas_numero}` //criando o link 
         if (event.target.id === 'criar_link') {
             link.innerText = gera_link
             paragrafo.style.display = "block"
             link.style.display = "block"
-            let formatado = `(${apenas_numero.substring(0, 2)}) ${apenas_numero.substring(2, 7)}-${apenas_numero.substring(7, 12)}`
-            numero.value = formatado
         }
     }
     //usamos o test para validar expressoes regulares. Neste caso, estamos verificando se o numero é regular
@@ -58,9 +58,11 @@ function openInNewTab(url) {
 
 const btn = document.querySelector("#envia_link");
 btn.addEventListener('click', function () {
-    numero.classList.remove('erro')
-    const url = `https://wa.me/${aba_link}`  // Corrigido para pegar o link atualizado
-    openInNewTab(url);
+    if (aba_link.length === 11) {
+        numero.classList.remove('erro')
+        const url = `https://wa.me/${aba_link}`  // Corrigido para pegar o link atualizado
+        openInNewTab(url);
+    }
 });
 
 document.getElementById('inumero').addEventListener('click', input);
