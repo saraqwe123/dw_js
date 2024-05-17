@@ -3,17 +3,17 @@ const teste_numero = /\d{11}/
 const paragrafo = document.getElementById('parag');
 const link = document.getElementById('span');
 const numero = document.getElementById('inumero')
-
-function verifica_numero(event, apenas_numero) {
-    console.log(event.target.id)
-    var apenas_numero = ""
+let aba_link = ""
+function verifica_numero(event) {
+    let apenas_numero = ""
     for (let n of numero.value) {
         // a exclamação inverte tudo
 
-        if (!"()- ".includes(n)) {
+        if (!isNaN(n)) {
             apenas_numero += n
             // pegando apenas os numeros para colocar no link
         }
+        aba_link = apenas_numero
     }
     if (teste_numero.test(apenas_numero)) {
         numero.classList.add('certo')
@@ -23,6 +23,8 @@ function verifica_numero(event, apenas_numero) {
             link.innerText = gera_link
             paragrafo.style.display = "block"
             link.style.display = "block"
+            let formatado = `(${apenas_numero.substring(0, 2)}) ${apenas_numero.substring(2, 7)}-${apenas_numero.substring(7, 12)}`
+            numero.value = formatado
         }
     }
     //usamos o test para validar expressoes regulares. Neste caso, estamos verificando se o numero é regular
@@ -32,6 +34,7 @@ function verifica_numero(event, apenas_numero) {
     }
 }
 
+
 function copiar_link() {
     const link_criado = link.innerText;         // .writeText(link_criado) copiando o texto p lá
     navigator.clipboard.writeText(link_criado) // navigator.clipboard chamando a api
@@ -40,7 +43,8 @@ function copiar_link() {
 }
 
 function input(event) {
-    if (event.target.id === "inumero") {
+    if (event.target == numero) {
+        console.log('input', event)
         paragrafo.style.display = "none"
         link.style.display = "none"
     }
@@ -52,15 +56,15 @@ function openInNewTab(url) {
 }
 
 const btn = document.querySelector("#envia_link");
-btn.addEventListener('click', function() {
-    const url = `https://wa.me/${numero.value}`  // Corrigido para pegar o link atualizado
-    console.log("Abrindo em nova aba:", url);
+btn.addEventListener('click', function () {
+    numero.classList.remove('erro')
+    const url = `https://wa.me/${aba_link}`  // Corrigido para pegar o link atualizado
     openInNewTab(url);
 });
 
-document.getElementById('inumero').addEventListener('input', verifica_numero)
+document.getElementById('inumero').addEventListener('click', input);
+document.getElementById('inumero').addEventListener('input', verifica_numero);
 document.getElementById('criar_link').addEventListener('click', verifica_numero);
 document.getElementById('envia_link').addEventListener('click', verifica_numero);
-document.getElementById('inumero').addEventListener('input', input);
 link.addEventListener('click', copiar_link);
 

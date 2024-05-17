@@ -99,6 +99,13 @@ span {
    display: none;
 }
 
+#span{
+   -webkit-user-select: none; 
+   user-select: none; 
+   -ms-user-select: none; 
+   -moz-user-select: none;
+}
+
 p {
    padding: 5%;
    display: none;
