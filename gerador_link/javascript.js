@@ -3,25 +3,21 @@ const teste_numero = /\d{11}/
 const paragrafo = document.getElementById('parag');
 const link = document.getElementById('span');
 const numero = document.getElementById('inumero')
-let abrir_aba = ""
 
-function verifica_numero(event) {
-    let apenas_numero = ""
+function verifica_numero(event, apenas_numero) {
+    console.log(event.target.id)
+    var apenas_numero = ""
     for (let n of numero.value) {
         // a exclamação inverte tudo
 
-        if (!isNaN(n)) {
+        if (!"()- ".includes(n)) {
             apenas_numero += n
             // pegando apenas os numeros para colocar no link
         }
-        abrir_aba = apenas_numero
     }
     if (teste_numero.test(apenas_numero)) {
-        let formatado = `(${apenas_numero.substring(0,2)}) ${apenas_numero.substring(2,7)}-${apenas_numero.substring(7, 12)}`
-        numero.value = formatado
         numero.classList.add('certo')
         numero.classList.remove('erro')
-
         const gera_link = `https://wa.me/${apenas_numero}` //criando o link 
         if (event.target.id === 'criar_link') {
             link.innerText = gera_link
@@ -30,8 +26,6 @@ function verifica_numero(event) {
         }
     }
     //usamos o test para validar expressoes regulares. Neste caso, estamos verificando se o numero é regular
-    
-
     else {
         numero.classList.add('erro')
         numero.classList.remove('certo')
@@ -59,11 +53,9 @@ function openInNewTab(url) {
 
 const btn = document.querySelector("#envia_link");
 btn.addEventListener('click', function() {
-    if (abrir_aba.length === 11) {
-        const url = `https://wa.me/${abrir_aba}`  // Corrigido para pegar o link atualizado
-        console.log("Abrindo em nova aba:", url);
-        openInNewTab(url);
-    }
+    const url = `https://wa.me/${numero.value}`  // Corrigido para pegar o link atualizado
+    console.log("Abrindo em nova aba:", url);
+    openInNewTab(url);
 });
 
 document.getElementById('inumero').addEventListener('input', verifica_numero)
