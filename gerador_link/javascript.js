@@ -6,6 +6,7 @@ const numero = document.getElementById('inumero')
 let aba_link = ""
 function verifica_numero(event) {
     let apenas_numero = ""
+    numero.value = numero.value
     for (let n of numero.value) {
         // a exclamação inverte tudo
 
