@@ -60,7 +60,7 @@ function openInNewTab(url) {
 const btn = document.querySelector("#envia_link");
 btn.addEventListener('click', function() {
     if (abrir_aba.length === 11) {
-        const url = `https://wa.me/${abrir_aba}`  // Corrigido para pegar o link atualizado
+        const url =`https://wa.me/${abrir_aba}`  // Corrigido para pegar o link atualizado
         console.log("Abrindo em nova aba:", url);
         openInNewTab(url);
     }
@@ -71,4 +71,3 @@ document.getElementById('criar_link').addEventListener('click', verifica_numero)
 document.getElementById('envia_link').addEventListener('click', verifica_numero);
 document.getElementById('inumero').addEventListener('input', input);
 link.addEventListener('click', copiar_link);
-
