@@ -14,7 +14,6 @@ function verifica_numero(event) {
             apenas_numero += n
             // pegando apenas os numeros para colocar no link
         }
-        abrir_aba = apenas_numero
     }
     if (teste_numero.test(apenas_numero)) {
         let formatado = `(${apenas_numero.substring(0,2)}) ${apenas_numero.substring(2,7)}-${apenas_numero.substring(7, 12)}`
