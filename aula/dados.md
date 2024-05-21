@@ -19,6 +19,9 @@ carro = {
 console.log(carro.ano, carro.cor, carro.combustivel)
 console.log(carro)
 console.log(carro.combustivel)
+carro.novaprop = 'valor' // adc atributo
+carro['novaprop'] = 'valor'
+delete carro.combustivel 
 ```
 
 ### Inteiros
@@ -37,6 +40,21 @@ As strings são letras, palavras ou frases.
 let texto = 'sara'
 console.log(sara)
 console.log(typeof texto)
+
+let partes = 'um, dois, tres, quatro'
+
+partes.splice(',')
+// 'um', 'dois', 'tres', 'quatro'
+
+let partes = 'hello world'
+partes.substring(0, 5)
+//hello
+partes.substring(7)
+//world
+
+let str = 'sara maravilhosa'
+let nova = str.replace('maravilhosa', 'perfeita')
+//sara perfeita
 ```
 
 ### Array
@@ -47,7 +65,15 @@ let padaria = ['pao', 'queijo', 'pao de queijo', 'suco de laranja']
 console.log(padaria)
 console.log(padaria[3])
 console.log(padaria[0]+padaria[2])
+padaria.splice(1, 2)
+//pao, suco de laranja
+
+let sara = padaria.slice(1, 3)
+queijo, pao de queijo
+sara.pop()
+//remove o ultimo elemento
 ```
+
 ### Boleano
 Podemos dizer que os dados boleanos servem para verificar se aquilo é falso ou verdadeiro.
 

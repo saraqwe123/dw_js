@@ -43,7 +43,7 @@ print(palavra)
 
 ### Exercícios Var
 
-``` javascript
+``` javascript 
 var linguagem = 'python'
 var linguagem = 'js'
 
