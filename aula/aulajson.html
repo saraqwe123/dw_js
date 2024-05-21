@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let json = "('nome': 'raqs', 'tell': '44999316300')"
+            let json2 = `{
+                'nome': 'maria',
+                'telefone': '44997078775'
+            }`
+
+            let contato1 = {
+                nome: 'joao',
+                telefone: 22222222
+            }
+
+            let contato2 = {
+                nome: 'maria',
+                telefone: '11111111'
+            }
+
+            //strings sao imutaveis, obj e mais facil de usar
+
+            contato1.cpf = "13731593912" //criando um atributo
+
+            //convertanto json/texto para obj
+
+
+            let contado = JSON.parse(texto)
+            console.log(contato)
+
+
+            //ao contrario
+            let contato = {
+                nome: 'joao',
+                telefone: '123445566778',
+                cpf: '1234344545'
+            }
+
+            let texto = JSON.stringify(contato)
+            console.log(texto)
+
+
+            //
+            fetch("https://servidor.com.br/info.txt")
+
+        </script>
+    </body>
+</html>

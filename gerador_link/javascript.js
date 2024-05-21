@@ -48,6 +48,7 @@ function input(event) {
         console.log('input', event)
         paragrafo.style.display = "none"
         link.style.display = "none"
+        paragrafo.innerText = "clique no link para copiar"
     }
 }
 
@@ -66,6 +67,7 @@ btn.addEventListener('click', function () {
 });
 
 document.getElementById('inumero').addEventListener('click', input);
+document.getElementById('inumero').addEventListener('input', input);
 document.getElementById('inumero').addEventListener('input', verifica_numero);
 document.getElementById('criar_link').addEventListener('click', verifica_numero);
 document.getElementById('envia_link').addEventListener('click', verifica_numero);
