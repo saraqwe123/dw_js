@@ -44,7 +44,7 @@ console.log(typeof texto)
 let partes = 'um, dois, tres, quatro'
 
 partes.splice(',')
-// 'um', 'dois', 'tres', 'quatro'
+// ['um', 'dois', 'tres', 'quatro']
 
 let partes = 'hello world'
 partes.substring(0, 5)
@@ -66,9 +66,12 @@ console.log(padaria)
 console.log(padaria[3])
 console.log(padaria[0]+padaria[2])
 padaria.splice(1, 2)
+//remove a partir do indice 1 dois elementos
 //pao, suco de laranja
 
 let sara = padaria.slice(1, 3)
+//pega a partir do idice 1 e adc até o indice 3 (mas o indice 3 n conta)
+
 queijo, pao de queijo
 sara.pop()
 //remove o ultimo elemento
@@ -77,5 +80,47 @@ sara.pop()
 ### Boleano
 Podemos dizer que os dados boleanos servem para verificar se aquilo é falso ou verdadeiro.
 
+### Operadores boleanos
+== verifica se os valores são iguais
+=== verifica se os valores e os tipos sao iguais
 
+### Operadores lógicos
 
+!=
+!==
+|| ou
+&& e 
+!true inverte o valor
+
+### Dados Null e Undefined 
+null representa a ausencia valor proposital que vc msm atribuiu, já o undefined é o proprio js que atribui a uma variável sem valor
+```JAVASCRIPT
+let variavel;
+console.log(variavel); // Output: undefined
+
+let variavel = null;
+console.log(variavel); // Output: null
+
+```
+### Operadores básicos
+
+```JAVASCRIPT
+
+// Operações aritméticas
+console.log(x + y) //adicao
+console.log(x - y)//subtracao
+console.log(x * y)//nult
+console.log(x / y)//div
+console.log(x ** 2)//expo
+console.log(y % x)//resto da divisao
+console.log(x++)
+console.log(x--)
+
+let sara = 5;
+console.log(sara--); // Output: 5 (primeiro retorna o valor atual, depois decrementa)
+console.log(xsara);   // Output: 4 (valor de sara após o decremento)
+
+let sara = 12;
+sara += 1;
+console.log(sara); // Output: 6 (incrementa sara em 1 imediatamente)
+```

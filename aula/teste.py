@@ -1,1 +1,0 @@
-print("Estou com saudade do python")

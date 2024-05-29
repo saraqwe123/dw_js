@@ -1,34 +1,26 @@
+
+
 # Declaração/chamada de funções
 ## Vc pd declarar uma funça~utilizando "function"
 
-```javascript
+javascript
 function soma(a, b) {
     return a + b;
 }
-```
+
 
 ## Vc pd atribuir uma função a uma variável ou constante
 
-```javascript
+javascript
 const soma = function(a, b) {
     return a + b;
 }
-```
-## Uma forma mais concisa de expressar uma função é utilizando  o ECMAScirpt 6. Arrow function = função de seta
 
-```javascript
-const soma = (a, b) => {
-    return a = B;
-}
-
-```
 
 ## Arrow de função com retorno implícito, é igual a arrow function, mas sem as {}
 
-```javascript
+javascript
 const soma = (a, b) => a + b
-
-```
 
 # Criando e Modificando Arrays 
 
@@ -69,7 +61,7 @@ console.log(array)
 let array = [1, 2, 3, 4]
 array.shift()
 console.log(array)
-//remove o primeiro elemento do array e a quantidade de elementos, para tirar a quantidade, da pra fazer assim
+//remove o primeiro elemento do array e mostra a quantidade de elementos, para tirar a quantidade, da pra fazer assim
 let array = [1, 2, 3, 4]
 let removedElement = array.shift()
 console.log(removedElement)
@@ -88,4 +80,12 @@ const [a, b, c] = array
 console.log(a)
 ```
 
-shift
+## shift
+remove o primeiro elemento do array
+```JAVASCRIPT
+const array = [1, 2, 3, 4, 5];
+const primeiroElemento = array.shift();
+
+console.log(primeiroElemento); // Saída: 1
+console.log(array); // Saída: [2, 3, 4, 5]
+```
