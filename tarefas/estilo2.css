@@ -56,7 +56,7 @@ button {
     position: absolute;
     top: 30%;
     left: 26%;
-    width: 45%;
+    width: 48%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -80,7 +80,7 @@ button {
     width: 50%;
     position: absolute;
     top: 35%;
-    left: 26%;
+    left: 25%;
     display: flex;
     flex-direction: column;
 }
@@ -114,3 +114,32 @@ label {
 label img {
     vertical-align: middle; 
 }
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+
+    .cria_conclui {
+        position: absolute;
+        top: 30%;
+        left: 26%;
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .tarefas {
+        height: 50%;
+        width: 50%;
+        position: absolute;
+        top: 45%;
+        left: 25%;
+        display: flex;
+        flex-direction: column;
+    }
+    input[type="checkbox"] {
+        margin-left: 5%;
+        width: 8%;
+    }
+    
+ }
