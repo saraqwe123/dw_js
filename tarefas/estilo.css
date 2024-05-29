@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+:root {
+    --branco: #FFFFFF;
+    --preto: #0D0D0D;
+    --azul: #1E6F9F;
+    --pretomedio: #1A1A1A;
+    --pretoclaro: #262626;
+    --azulclaro: #4EA8DE;
+    --roxo: #8284FA;
+}
+
+body {
+    background-color: var(--pretomedio);
+}
+
+h1 {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--preto);
+}
+
+
+form {
+    position: absolute;
+    top: 18%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+input {
+    padding: 1%;
+    width: 40%;
+    border-radius: 10px;
+    background-color: var(--pretoclaro);
+}
+
+button {
+    padding: 1%;
+    border-radius: 10px;
+    margin-left: 1%;
+    background-color: var(--azulclaro);
+    color: var(--branco);
+    cursor: pointer;
+}
+
+.tarefas {
+    position: absolute;
+    top: 30%;
+    left: 26%;
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#tarefas_criadas {
+    color: var(--azulclaro);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#tarefas_concluidas {
+    color: var(--roxo);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.imagem {
+    position: absolute;
+    top: 35%;
+    left: 26%;
+}
