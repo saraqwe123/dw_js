@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
+    <script src="javascript.js" defer></script>
     <title>Document</title>
 </head>
 <body>
     <h1> <img src="Logo.png" alt=""> </h1>
-    <form action="">
+    <form action="" id="formulario">
         <input type="text" id="itarefa" name="tarefa" placeholder="Adicione uma nova tarefa">
         <button>𝗰𝗿𝗶𝗮𝗿 ⨁</button>
     </form>
@@ -16,7 +17,9 @@
         <p id="tarefas_criadas">tarefas criadas 0</p>
         <p id="tarefas_concluidas">tarefas concluídas 0</p>
     </div>
-    
+    <ul id="lista_tarefas">
+        tarefas
+    </ul>
     <div class="imagem">
         <img class="image" src="Empty.png" alt="">
     </div>
