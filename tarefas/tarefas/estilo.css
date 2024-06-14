@@ -82,6 +82,7 @@ li {
     background-color: var(--pretoclaro);
     padding: 1%;
     border-radius: 10px;
+    margin: 1%;
 }
 
 #tarefas_criadas {
@@ -103,3 +104,6 @@ li {
     left: 24%;
 }
 
+#check {
+    width: 5%;
+}
