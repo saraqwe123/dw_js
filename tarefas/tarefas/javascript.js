@@ -6,6 +6,7 @@ let imagem = document.querySelector(".imagem")
 let novaTarefaJSON = {}
 let lista_tarefas = document.getElementById("lista_tarefas")
 let tarefas = []
+let concluidas = []
 
 function conta_tarefas(event) {
     event.preventDefault(); // Impede o comportamento padrão do formulário
@@ -45,21 +46,35 @@ function mostrar_tarefas(event) {
 
             checkbox.addEventListener("click", function () {
                 if (checkbox.checked) {
-                    li.remove(); // Remove o li quando o checkbox é marcado
+                    let elemento = checkbox.parentElement
+                    console.log(elemento)
+                    elemento.style.textDecoration = "line-through" //para riscar a tarefa
+                    concluidas.push(tarefa)
                     tarefas.splice(tarefa, 1); // Remove a tarefa do array
                     criadas.innerText = "Tarefas Criadas: " + tarefas.length;
+                    feitas.innerText = "Tarefas Concluidas: " + concluidas.length;
+
                     
+                } else {
+                    let elemento = checkbox.parentElement
+                    elemento.style.textDecoration = "none"
+                    tarefas.push(tarefa)
+                    criadas.innerText = "Tarefas Criadas: " + tarefas.length;
+                    concluidas.pop()
+                    feitas.innerText = "Tarefas Concluidas: " + concluidas.length;
                 }
-
-                lixeira.addEventListener("click", function () {
-                    li.remove(); 
-                   tarefas.splice(tarefa, 1)
-                    feitas.innerText = "Tarefas Concluídas: " + tarefas.length;
-                    
-
-
-                });
             })
+
+
+            console.log(lixeira, 546765376543)
+            lixeira.addEventListener("click", function (event) {
+                if (event.target === lixeira)
+                li.remove();
+                tarefas.splice(tarefa, 1)
+                criadas.innerText = "Tarefas Concluídas: " + tarefas.length;
+
+
+            });
         })
     }
 }
