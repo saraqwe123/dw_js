@@ -7,13 +7,14 @@ let novaTarefaJSON = {}
 let lista_tarefas = document.getElementById("lista_tarefas")
 let tarefas = []
 let concluidas = []
+let enviar = document.getElementById("enviar")
 
 function conta_tarefas(event) {
     event.preventDefault(); // Impede o comportamento padrão do formulário
 
     if (input.value.trim() !== "") {
-        novaTarefaJSON = { "tarefa": input };
-        tarefas.push(input.value)
+        tarefas.push(input.value.trim());
+        localStorage.setItem("itens", JSON.stringify(tarefas))
         criadas.innerText = "Tarefas Criadas" + " " + tarefas.length
         input.value = ""
     }
@@ -80,3 +81,4 @@ function mostrar_tarefas(event) {
 }
 
 formulario.addEventListener("submit", mostrar_tarefas);
+
